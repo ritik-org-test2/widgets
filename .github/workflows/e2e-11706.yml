@@ -1,0 +1,7 @@
+name: e2e-11706
+on: workflow_dispatch
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ok
