@@ -1,0 +1,14 @@
+name: hr-reusable
+on:
+  workflow_call:
+    inputs:
+      runner:
+        type: string
+        required: true
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ${{ inputs.runner }}
+    steps:
+      - run: echo "reusable job on ${{ inputs.runner }}"
