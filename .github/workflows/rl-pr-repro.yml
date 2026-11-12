@@ -19,3 +19,4 @@ jobs:
           echo "build started on $(lsb_release -ds) at $(date -u +%H:%M:%S)"
           sleep 60
           echo "build finished at $(date -u +%H:%M:%S)"
+
