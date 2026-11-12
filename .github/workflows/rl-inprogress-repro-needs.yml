@@ -1,0 +1,21 @@
+name: rl-inprogress-repro-needs
+on: workflow_dispatch
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      runner: ${{ steps.pick.outputs.runner }}
+    steps:
+      - id: pick
+        run: |
+          echo "setup started at $(date -u +%H:%M:%S)"
+          sleep 45
+          echo "runner=ubuntu-22.04" >> "$GITHUB_OUTPUT"
+  build:
+    needs: setup
+    runs-on: ${{ needs.setup.outputs.runner }}
+    steps:
+      - run: |
+          echo "build started on $(lsb_release -ds) at $(date -u +%H:%M:%S)"
+          sleep 60
+          echo "build finished at $(date -u +%H:%M:%S)"
