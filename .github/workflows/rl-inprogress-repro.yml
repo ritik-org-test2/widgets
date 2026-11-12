@@ -1,0 +1,14 @@
+name: rl-inprogress-repro
+on: workflow_dispatch
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, ubuntu-22.04]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: |
+          echo "Job started on ${{ matrix.os }} at $(date -u +%H:%M:%S)"
+          sleep 120
+          echo "Job finished at $(date -u +%H:%M:%S)"
